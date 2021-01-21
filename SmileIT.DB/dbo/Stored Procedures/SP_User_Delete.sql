@@ -1,0 +1,7 @@
+﻿CREATE PROCEDURE [dbo].[SP_User_Delete]
+	@pUserId int
+AS
+BEGIN TRANSACTION
+	DELETE FROM Users
+	WHERE id_User = @pUserId
+COMMIT

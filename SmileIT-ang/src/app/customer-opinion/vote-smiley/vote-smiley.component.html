@@ -1,0 +1,48 @@
+<div class="content mt-0 mb-0" role="main">
+
+   
+
+  <div *ngIf="isLoggedIn() === true">
+    <span class="text-"> Attention vous êtes logged in !</span>
+    <button class="btn btn-danger btn-sm btn-inline ml-2" (click)="logout()">Logout</button>
+  </div>
+
+  <h1 class="mt-0">How was your experience ?</h1>
+  <h2>We'd love it if you'd let us know!</h2>
+  <button class="btn btn-info btn-sm btn-block btn-width-spec" (click)="ToggleWantToAddComment()"> Click me to add a comment ;) </button>
+  
+    <form #form="ngForm" autocomplete="off" (ngSubmit)="onSubmit(form)">
+        <input type="hidden" name="Id" [value]="service.formData.Id">
+        <input type="hidden" name="SmileyId" [ngModel]="service.formData.SmileyId">
+        <input type="hidden" name="Commentary" [ngModel]="service.formData.Commentary">
+        <div *ngIf="wantToAddComment === true" class="form-group ">
+          <label for="comment">   
+          </label>    
+          <textarea name="comment" #comment="ngModel" [(ngModel)]="service.formData.Commentary" class="form-control form-control-lg "  placeholder="Ce qui pourrait être amélioré :"></textarea>
+        </div>
+        <input type="hidden" name="Created_at" [ngModel]="service.formData.Created_at">        
+    </form> 
+
+    <div class="row mt-4">
+      <div id="small-img" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 center">
+        <ul>
+          <li>
+            <a  (click)="onVote1(form)">
+              <img src="../../assets/images/smiley-red.png" class="circle-link" alt="red unhappy smiley" />
+            </a>
+          </li>
+          <li>
+            <a (click)="onVote3(form)">
+              <img src="../../assets/images/smiley-yellow.png" class="circle-link" alt="yellow neutral smiley" />
+            </a>
+          </li>
+          <li>
+            <a (click)="onVote5(form)">
+              <img src="../../assets/images/smiley-green.png" class="circle-link" alt="green happy smiley" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+</div>

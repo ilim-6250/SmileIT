@@ -1,0 +1,34 @@
+<div class="jumbtron">
+    <h1 class="display-4 text-center">List of Customer's Opinions</h1>
+    <h3 class="display-4 text-center">Select an opinion to edit it</h3>
+
+    <div class="row">
+        <div class="col-md-5">
+            <app-customer-opinion-detail-form></app-customer-opinion-detail-form>
+        </div>
+        <div class="col-md-7">
+            <div>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Id</th>
+                            <th>Smiley</th>
+                            <th>Comment</th>
+                            <th>Date of creation</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let pd of service.list">
+                        <td (click)="populateForm(pd)">{{pd.Id}}</td>
+                        <td (click)="populateForm(pd)"><img class="circle-link mt-0 mb-0" src="{{pd.SmileyId | numberToSmileyLogo }}" ></td>
+                        <td (click)="populateForm(pd)">{{pd.Commentary}}</td>
+                        <td (click)="populateForm(pd)">{{pd.Created_at | date :'d/M/yyyy, h:mm a'}}</td>
+                        <td>
+                            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>     
+    </div>
+</div>
