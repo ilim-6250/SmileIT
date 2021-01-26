@@ -63,13 +63,14 @@ namespace SmileIT.API.Controllers
             return _service.Insert(new L.CustomerOpinion(entityInfo.SmileyId, entityInfo.Commentary, entityInfo.Created_at));
         }
 
-        [HttpPost ("IOT") ,AllowAnonymous]
+        [HttpPost("IOT"), AllowAnonymous]
         //[AcceptVerbs("POST")]
         //[Route("AddUser")] 
-        public L.CustomerOpinion_IOT AddCustomerOpinion_IOT (CustomerOpinion_IOT_info entity)
+        public L.CustomerOpinion_IOT AddCustomerOpinion_IOT (CustomerOpinion_IOT_info entityInfo)
         {
-            return _iotService.Insert_IOT(new L.CustomerOpinion_IOT(entity.SmileyId, entity.Localisation, entity.Created_at));//L pour local
+           return _iotService.Insert_IOT(new L.CustomerOpinion_IOT(entityInfo.SmileyId, entityInfo.Localisation,entityInfo.CompanyName, entityInfo.Created_at));//L pour local
         }
+
 
         [HttpPut("{id}")]
         //[AcceptVerbs("PUT")]

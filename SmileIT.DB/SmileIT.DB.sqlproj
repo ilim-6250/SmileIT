@@ -84,5 +84,6 @@
     <Build Include="dbo\Stored Procedures\SP_User_UpdatePasswordByIdUser.sql" />
     <Build Include="dbo\Stored Procedures\SP_User_ReadUsersWithRoles.sql" />
     <Build Include="dbo\Stored Procedures\SP_CustomerOpinion_Update.sql" />
+    <Build Include="dbo\Stored Procedures\SP_CustomerOpinion_insert_IOT.sql" />
   </ItemGroup>
 </Project>

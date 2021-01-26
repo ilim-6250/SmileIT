@@ -5,6 +5,7 @@
 	[FK_Smiley] [int] NOT NULL,
 	[FK_User] [int] NOT NULL,
 	[Localisation] [varchar] (200) DEFAULT 'unknown', 
+	[CompanyName] [varchar] (200) DEFAULT 'unknown',
  CONSTRAINT [PK_CustomersOpinions] PRIMARY KEY CLUSTERED 
 (
 	[id_CustomerOpinion] ASC

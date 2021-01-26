@@ -11,9 +11,12 @@ namespace SmileIT.API.Models
         [Required]
         public int SmileyId { get; set; }
         public string Localisation { get; set; }
+        public string CompanyName { get; set; }
+       
         [Required]
         [DataType("DateTime2")]
         public DateTime Created_at { get; set; }
+        
     }
 }
 
