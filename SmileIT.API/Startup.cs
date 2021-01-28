@@ -84,7 +84,7 @@ namespace SmileIT.API
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseCors(options =>
-            options.WithOrigins("http://localhost:4200", "https://smileit23.postman.co")
+            options.WithOrigins("http://localhost:4200","https://smileit23.postman.co", "https://red-spaceship-399083.postman.co", "https://mythings.proximus.be", "http://localhost:44356")
             .AllowAnyMethod()
             .AllowAnyHeader());
 

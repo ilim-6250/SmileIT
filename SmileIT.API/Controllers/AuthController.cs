@@ -24,12 +24,12 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace SmileIT.API.Controllers
 {
-   // [Authorize]
+   [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
     {
-       private const string ConnectionString = @"Data Source=DESKTOP-JLDOPPK\MSSQLSERVER01;Initial Catalog=SmileIT;Integrated Security=True"; //lk connection string
+       private const string ConnectionString = @"Data Source=desktop-jldoppk\mssqlserver03;Initial Catalog=SmileIT;Integrated Security=True"; //lk connection string
                 //@"Data Source=DELL-M4500\SQLEXPRESS;Initial Catalog=SmileIT.DB;Integrated Security=True" // jy Connection string
         private Connection _connection;
         private AppSettings _appSettings;

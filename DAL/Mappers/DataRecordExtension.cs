@@ -40,10 +40,13 @@ namespace DAL.Mappers
             {
                 Id = (int)dR["id_CustomerOpinion"],
                 SmileyId = (int)dR["FK_Smiley"],
-                Localisation = (dR["Localisation"] != DBNull.Value) ? dR["Localisation"].ToString() : null,
+                Timestamp = (DateTime)dR["CustomerReviewDateTime"],
                 CompanyName = (dR["CompanyName"] != DBNull.Value) ? dR["CompanyName"].ToString() : null,
-                Created_at = (DateTime)dR["CustomerReviewDateTime"]
-                
+                DevEUI = (dR["DevEUI"] != DBNull.Value) ? dR["DevEUI"].ToString() : null,
+                ThingName = (dR["ThingName"] != DBNull.Value) ? dR["ThingName"].ToString() : null,
+                Container = (dR["Container"] != DBNull.Value) ? dR["Container"].ToString() : null,
+                LocationFriendlyName1 = (dR["LocationFriendlyName1"] != DBNull.Value) ? dR["LocationFriendlyName1"].ToString() : null,
+               
                 //SagaName = (dR["SagaName"] != DBNull.Value) ? dR["SagaName"].ToString() : null,
                 //LastEdit = (dR["LastEdit"] != DBNull.Value) ? (DateTime?)dR["LastEdit"] : null
             };

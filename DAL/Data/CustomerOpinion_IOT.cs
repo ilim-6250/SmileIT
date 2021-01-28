@@ -9,8 +9,14 @@ namespace DAL.Data
     {
         public int Id { get; set; }
         public int SmileyId { get; set; }
-        public string Localisation { get; set; }
-        public DateTime Created_at { get; set; }
+        public DateTime Timestamp { get; set; }
         public string CompanyName { get; set; }
+        public string DevEUI { get; set; }
+        public string ThingName { get; set; }
+
+        public string Container { get; set; }
+
+        public string LocationFriendlyName1 { get; set; }
+        
     }
 }

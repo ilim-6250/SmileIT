@@ -68,10 +68,34 @@ namespace SmileIT.API.Controllers
         //[Route("AddUser")] 
         public L.CustomerOpinion_IOT AddCustomerOpinion_IOT (CustomerOpinion_IOT_info entityInfo)
         {
-           return _iotService.Insert_IOT(new L.CustomerOpinion_IOT(entityInfo.SmileyId, entityInfo.Localisation,entityInfo.CompanyName, entityInfo.Created_at));//L pour local
+            
+            int ConvertIotValueToAPISmileyID(string Value)
+
+            {
+                int Smiley = 0;
+                string ID = Value.Substring(4, 2);  // A16231F5,A16233F5,A16235F5
+                switch (ID)
+                {
+                    case "31":
+                        Smiley = 1;
+                        break;
+                    case "33":
+                        Smiley= 3;
+                        break;
+                    case "35":
+                        Smiley = 5;
+                        break;
+                    default:
+                        Smiley = 3;
+                        break;
+                }
+                return Smiley;
+            }
+          
+        int SmileyId = 0;
+        SmileyId = ConvertIotValueToAPISmileyID (entityInfo.Value); // je me sers de la fonction 
+        return _iotService.Insert_IOT(new L.CustomerOpinion_IOT(SmileyId, entityInfo.Timestamp, entityInfo.CompanyName, entityInfo.DevEUI, entityInfo.ThingName, entityInfo.Container, entityInfo.LocationFriendlyName1));//L pour local
         }
-
-
         [HttpPut("{id}")]
         //[AcceptVerbs("PUT")]
         //[Route("UpdateUser/{id}")]

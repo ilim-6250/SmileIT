@@ -4,8 +4,11 @@
 	[CustomerComment] [varchar](500) NULL,
 	[FK_Smiley] [int] NOT NULL,
 	[FK_User] [int] NOT NULL,
-	[Localisation] [varchar] (200) DEFAULT 'unknown', 
 	[CompanyName] [varchar] (200) DEFAULT 'unknown',
+	[DevEUI]	  [varchar] (200) DEFAULT 'unknown',
+	[ThingName]   [varchar] (200) DEFAULT 'unknown',
+	[Container]   [varchar] (200) DEFAULT 'unknown',
+	[LocationFriendlyName1] [varchar] (200) DEFAULT 'unknown', 
  CONSTRAINT [PK_CustomersOpinions] PRIMARY KEY CLUSTERED 
 (
 	[id_CustomerOpinion] ASC

@@ -44,16 +44,19 @@ namespace SmileIT.API.Utils
             };
         }
         public static CustomerOpinion_IOT ToLocal(this D.CustomerOpinion_IOT entity)   //DAL VERS API
-        { 
+        {
             return new CustomerOpinion_IOT()
             {
                 Id = entity.Id,
                 SmileyId = entity.SmileyId,
-                Localisation = entity.Localisation,
-                Created_at = entity.Created_at
+                Timestamp = entity.Timestamp,
+                CompanyName = entity.CompanyName,
+                DevEUI = entity.DevEUI,
+                ThingName = entity.ThingName,
+                Container = entity.Container,
+                LocationFriendlyName1 = entity.LocationFriendlyName1
             };
         }
-
 
         public static D.CustomerOpinion ToGlobal(this CustomerOpinion entity)  //API VERS LA DAL
         {
@@ -72,11 +75,14 @@ namespace SmileIT.API.Utils
             {
                 Id = entity.Id,
                 SmileyId = entity.SmileyId,
-                Localisation = entity.Localisation,
-                Created_at = entity.Created_at
+                Timestamp = entity.Timestamp,
+                CompanyName = entity.CompanyName,
+                DevEUI = entity.DevEUI,
+                ThingName = entity.ThingName,
+                Container = entity.Container,
+                LocationFriendlyName1 = entity.LocationFriendlyName1
             };
         }
-
-
     }
 }
+

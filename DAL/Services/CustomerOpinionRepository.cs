@@ -13,7 +13,7 @@ namespace DAL.Services
     public class CustomerOpinionRepository: IRepository<CustomerOpinion, int> 
     {
         private const string ConnectionString =
-              @"Data Source=DESKTOP-JLDOPPK\MSSQLSERVER01;Initial Catalog=SmileIT;Integrated Security=True"; //lk connection string
+              @"Data Source=desktop-jldoppk\mssqlserver03;Initial Catalog=SmileIT;Integrated Security=True"; //lk connection string
               //@"Data Source=DELL-M4500\SQLEXPRESS;Initial Catalog=SmileIT.DB;Integrated Security=True"; // jy Connection string
         private Connection _dbConnection;
 
@@ -60,12 +60,15 @@ namespace DAL.Services
         {
             Command command = new Command("SP_CustomerOpinion_insert_IOT", true);
             command.AddParameter("idSmiley", entity.SmileyId);
-            command.AddParameter("pLocalisation", entity.Localisation);
-            command.AddParameter("pCreated_at", entity.Created_at);
+            command.AddParameter("pTimestamp", entity.Timestamp);
             command.AddParameter("pCompanyName", entity.CompanyName);
-            //command.AddParameter("userId", 2);
+            command.AddParameter("pDevEUI", entity.DevEUI);
+            command.AddParameter("pThingName", entity.ThingName);
+            command.AddParameter("pContainer", entity.Container);
+            command.AddParameter("pLocationFriendlyName1", entity.LocationFriendlyName1);
+                       //command.AddParameter("userId", 2);
 
-            entity.Id = (int)_dbConnection.ExecuteScalar<CustomerOpinion>(command);
+            entity.Id = (int)_dbConnection.ExecuteScalar<CustomerOpinion_IOT>(command);
 
             return entity;
         }
