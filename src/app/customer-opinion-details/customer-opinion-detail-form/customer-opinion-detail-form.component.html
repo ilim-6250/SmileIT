@@ -1,0 +1,30 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="Id" [value]="service.formData.Id">
+    <div class="form-group">
+        <label>SmileyId</label>
+        <input name="SmileyId" #SmileyId="ngModel" [(ngModel)]="service.formData.SmileyId"
+            class="form-control form-control-lg" placeholder="SmileyId" required
+            [class.invalid]="SmileyId.invalid &#038;&#038; SmileyId.touched">
+    </div>
+    <div class="form-group">
+        <label>Comment</label>
+        <input name="Comment" #Comment="ngModel" [(ngModel)]="service.formData.Commentary"
+            class="form-control form-control-lg" placeholder="Comment"  maxlength="500"
+            [class.invalid]="Comment.invalid &#038;&#038; Comment.touched">
+    </div>
+    <div class="form-group">
+        <label>Created_at</label>
+        <input *ngIf="service.formData.Id === 0" type="date" name="Created_at" #Created_at="ngModel" [(ngModel)]="service.formData.Created_at"
+            class="form-control form-control-lg" placeholder="Created_at" required 
+            [class.invalid]="Created_at.invalid &#038;&#038; Created_at.touched">
+        <input *ngIf="service.formData.Id != 0" name="Created_at" #Created_at="ngModel" [(ngModel)]="service.formData.Created_at"
+            class="form-control form-control-lg" placeholder="Created_at" required 
+            [class.invalid]="Created_at.invalid &#038;&#038; Created_at.touched">
+    </div>        
+
+    <div class="form-group">
+        <button *ngIf="service.formData.Id === 0" class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">Insert</button>
+        <button *ngIf="service.formData.Id != 0" class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">Update n°{{service.formData.Id}}</button>
+    </div>
+
+</form>

@@ -1,0 +1,12 @@
+<h2>Average votes between two dates </h2>
+<form (ngSubmit)="onSubmit(formAvg)" #formAvg="ngForm">
+    <div class="form-group">
+        <label for="name">date début</label>
+        <input type="date" class="form-control" name="dateStart" ngModel >
+    </div>
+    <div class="form-group">
+        <label for="name">date fin</label>
+        <input type="date" class="form-control" name="dateEnd" ngModel >
+    </div>
+    <button type="submit" class="btn btn-primary">Get Averages</button>
+</form>

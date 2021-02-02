@@ -1,0 +1,30 @@
+<div class="jumbtron">
+    <h1 class="display-4 text-center">CustomerOpinion Average Selection</h1>
+
+    <div class="row">
+        <div class="col-md-5">
+            <app-customer-opinion-stats-average-between-two-date-form></app-customer-opinion-stats-average-between-two-date-form>
+        </div>
+        <div class="col-md-7">
+            <div>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+            
+                            <th>Smiley Type</th>
+                            <th>Number of vote </th>
+                            <th>Percent </th>
+                            
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let item of serviceAvg.list">
+                        <td><img class="circle-link mt-0 mb-0" src="{{ item.SmileyId | numberToSmileyLogo}}"></td>
+                        <td>{{item.NumberOfVote}}</td>
+                        <td>{{item.Percent}} %</td>
+                    </tr>
+                </table>
+            </div>
+        </div>     
+    
+    </div>
+</div>

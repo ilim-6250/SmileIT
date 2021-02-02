@@ -1,0 +1,28 @@
+<div class="jumbtron">
+    <h1 class="display-4 text-center">CustomerOpinion Average Selection</h1>
+
+    <div class="row">
+        <div class="col-md-5">
+            <app-customer-opinion-list-between-two-date-form></app-customer-opinion-list-between-two-date-form>
+        </div>
+        <div class="col-md-7">
+            <div>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>            
+                            <th>Date</th>
+                            <th>Smiley</th>
+                            <th>Comment from customer </th>
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let item of serviceList.list">
+                        <td>{{item.CustomerReviewDateTime | date :'d/M/yyyy, h:mm a'}}</td>
+                        <td><img class="circle-link mt-0 mb-0" src="{{item.idSmiley | numberToSmileyLogo }}" ></td>
+                        <td>{{item.CustomerComment}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>     
+    
+    </div>
+</div>

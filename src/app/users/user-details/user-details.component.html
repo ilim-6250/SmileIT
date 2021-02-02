@@ -1,0 +1,36 @@
+<div class="jumbtron">
+    <h1 class="display-4 text-center">List of Users</h1>
+    <h3 class="display-4 text-center">Select a User to edit it</h3>
+
+    <div class="row">
+        <div class="col-md-5">
+            <app-user-detail-form></app-user-detail-form>
+        </div>
+        <div class="col-md-7">
+            <div>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th>Id</th>
+                            <th>Username</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Password</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let pd of service.list">
+                        <td (click)="populateForm(pd)">{{pd.Id}}</td>
+                        <td (click)="populateForm(pd)">{{pd.Username}}</td>
+                        <td (click)="populateForm(pd)">{{pd.Email}}</td>
+                        <td (click)="populateForm(pd)">{{pd.Role}}</td>
+                        <td (click)="populateForm(pd)">{{pd.Password}}</td>
+                        <td>
+                            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.Id)"></i>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
