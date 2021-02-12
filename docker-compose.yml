@@ -1,0 +1,38 @@
+version: '3.5'
+
+services:
+  smileit.ang:
+    container_name: smileit.ang
+    build:
+      context: ./SmileIT-ang
+      dockerfile: dockerfile
+      args:
+        PROFILE: dev
+    ports:
+      - "4200:80"
+
+  smileitsql:
+    image: "microsoft/mssql-server-linux"
+    container_name: smileitsql
+    expose:
+      - "1433"
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "B20c2271"
+      MSSQL_PID: "Express"                       
+  #   volumes:
+  #     - .\SmileIT.DB\QUASABI:/var/opt/mssql
+    ports:
+      - "1433:1433"
+  
+
+  smileit.api:
+    container_name: smileit.api
+    image: smileit.api
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on: 
+      - smileitsql

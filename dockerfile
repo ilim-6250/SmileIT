@@ -1,17 +1,17 @@
-FROM node:14.1-alpine as node
-RUN mkdir - /app
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1 AS build
 WORKDIR /app
 
-COPY package.json /app/
-
-RUN npm install
-
-ENV PATH="./node_modules/.bin:$PATH"
-
+# Copy csproj and restore as distinct layers
+COPY *.sln .
 COPY . .
+WORKDIR /app/SmileIT.API
+RUN dotnet restore
 
-RUN npm run build
+RUN dotnet publish -c Release -o out
 
-FROM nginx:1.17-alpine
-COPY nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=node /app/dist/SmileIT-ang /usr/share/nginx/html
+# Build runtime image
+FROM mcr.microsoft.com/dotnet/core/aspnet:3.1 AS runtime
+WORKDIR /app
+COPY --from=build /app/SmileIT.API/out ./
+EXPOSE 80
+ENTRYPOINT ["dotnet", "SmileIT.API.dll"] 
