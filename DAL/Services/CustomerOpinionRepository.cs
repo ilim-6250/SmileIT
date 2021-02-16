@@ -13,7 +13,7 @@ namespace DAL.Services
     public class CustomerOpinionRepository: IRepository<CustomerOpinion, int> 
     {
         private const string ConnectionString =
-              @"Data Source=smileitsql;Database=SmileIT;User=sa;Password=B20c2271;"; 
+              @"Data Source=smileitsql;Database=master;User=sa;Password=B20c2271;"; 
         //lk connection string
         //@"Data Source=DELL-M4500\SQLEXPRESS;Initial Catalog=SmileIT.DB;Integrated Security=True"; // jy Connection string
         private Connection _dbConnection;
